@@ -20,7 +20,7 @@ def analyze(payload: SentimentRequest):
 @router.get(
     "/model-info",
     summary="감성 분석 모델 정보",
-    description="서빙 중인 모델명, 양자화 여부, 양자화 전/후 모델 크기(MB)를 반환합니다.",
+    description="서빙 중인 모델명, 런타임(onnxruntime), 양자화 방식, 양자화 전/후 모델 크기(MB)를 반환합니다.",
 )
 def model_info():
     return analyzer.info

@@ -3,7 +3,7 @@
 | 구분 | 기술 | 배포 |
 |---|---|---|
 | `frontend/` | Streamlit | Streamlit Community Cloud |
-| `backend/` | FastAPI + SQLite + KoELECTRA-Small 감성 분석 (INT8 양자화) | Hugging Face Spaces (Docker) |
+| `backend/` | FastAPI + SQLite + KoELECTRA-Small 감성 분석 (ONNX INT8, onnxruntime) | Render (render.yaml) |
 
 ## 로컬 실행
 ```bash
@@ -19,4 +19,4 @@ BACKEND_URL=http://localhost:8001 streamlit run app.py
 
 ## Streamlit Cloud 설정
 - Main file path: `frontend/app.py`
-- Secrets: `BACKEND_URL = "https://<hf-space-url>"`
+- Secrets: `BACKEND_URL = "https://<render 서비스 주소>"`

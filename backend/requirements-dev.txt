@@ -1,0 +1,6 @@
+# 모델 ONNX 변환(export_onnx.py) 및 성능 비교용
+-r requirements.txt
+torch>=2.2
+transformers>=4.40
+onnx>=1.15
+onnxscript

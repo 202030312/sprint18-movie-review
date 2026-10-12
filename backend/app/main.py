@@ -50,7 +50,7 @@ app = FastAPI(
         "영화 정보, 사용자 리뷰, 리뷰 감성 분석을 제공하는 백엔드 API입니다.\n\n"
         "- **영화 관리**: 등록 / 전체·특정 조회 / 삭제 / 평점 조회\n"
         "- **리뷰 관리**: 등록(자동 감성 분석) / 전체·특정 영화 리뷰 조회 / 삭제\n"
-        "- **감성 분석**: `monologg/koelectra-small-finetuned-nsmc` + INT8 동적 양자화"
+        "- **감성 분석**: `monologg/koelectra-small-finetuned-nsmc` → ONNX 변환 + INT8 동적 양자화 (onnxruntime 서빙)"
     ),
     version="1.0.0",
     lifespan=lifespan,
@@ -67,4 +67,4 @@ app.include_router(sentiment.router)
 
 @app.get("/health", tags=["Health"], summary="헬스 체크", description="서버 및 모델 로드 상태를 확인합니다.")
 def health():
-    return {"status": "ok", "model_loaded": analyzer.model is not None}
+    return {"status": "ok", "model_loaded": analyzer.session is not None}
